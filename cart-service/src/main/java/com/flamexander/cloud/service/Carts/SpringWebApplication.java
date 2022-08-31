@@ -19,7 +19,7 @@ public class SpringWebApplication {
 		@GetMapping("/api/v1/slow")
 		public String getData(@RequestParam(defaultValue = "0") Long delay) throws InterruptedException {
 			Thread.sleep(delay);
-			return "Slow Data";		
+			return "Slow Data";
 		}
 
 	}
