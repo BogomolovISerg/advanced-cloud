@@ -5,13 +5,9 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>discovery-service</module>
-		<module>config-server</module>
+		<module>auth-service</module>
+		<module>core-service</module>
 		<module>front-service</module>
-		<module>gateway-service</module>
-		<module>product-service</module>
-        <module>cloud-common</module>
-        <module>greeting-service</module>
         <module>slow-service</module>
 	</modules>
 
@@ -36,16 +32,28 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>3.6.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
