@@ -5,14 +5,11 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>discovery-service</module>
-		<module>config-server</module>
 		<module>front-service</module>
-		<module>gateway-service</module>
-		<module>product-service</module>
-        <module>cloud-common</module>
-        <module>greeting-service</module>
-        <module>slow-service</module>
+		<module>core-service</module>
+		<module>Getaway</module>
+		<module>auth-service</module>
+		<module>cart-service</module>
 	</modules>
 
 	<parent>
@@ -21,49 +18,30 @@
 		<version>2.5.2</version>
 		<relativePath/>
 	</parent>
-	
-	<groupId>com.flamexander</groupId>
-	<artifactId>advanced-cloud</artifactId>
+
+	<groupId>com.geekbrains</groupId>
+	<artifactId>spring-web</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>advanced-cloud</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-web</name>
+	<description>First Spring Web Project</description>
 
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>2020.0.3</spring-cloud.version>
-		<test>0.0.1</test>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>${spring-cloud.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>
