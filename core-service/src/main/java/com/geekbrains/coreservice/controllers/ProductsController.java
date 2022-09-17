@@ -1,11 +1,11 @@
 package com.geekbrains.coreservice.controllers;
 
-import com.geekbrains.spring.web.converters.ProductConverter;
-import com.geekbrains.spring.web.dto.ProductDto;
-import com.geekbrains.spring.web.entities.Product;
-import com.geekbrains.spring.web.exceptions.ResourceNotFoundException;
-import com.geekbrains.spring.web.services.ProductsService;
-import com.geekbrains.spring.web.validators.ProductValidator;
+import com.geekbrains.coreservice.converters.ProductConverter;
+import com.geekbrains.coreservice.dto.ProductDto;
+import com.geekbrains.coreservice.entities.Product;
+import com.geekbrains.coreservice.exceptions.ResourceNotFoundException;
+import com.geekbrains.coreservice.services.ProductsService;
+import com.geekbrains.coreservice.validators.ProductValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;

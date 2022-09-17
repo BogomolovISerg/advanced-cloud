@@ -26,4 +26,8 @@ public class CartController {
         service.clear(cartName);
     }
 
+    @PostMapping("/createOrder/{cartName}")
+    public void createOrder(@RequestHeader String username, @RequestBody OrderDetailsDto orderDetailsDto, @PathVariable String cartName){
+        service.createOrder(username, orderDetailsDto, cartName);
+    }
 }
