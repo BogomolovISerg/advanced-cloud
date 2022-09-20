@@ -1,6 +1,6 @@
 package com.geekbrains.coreservice.dto;
 
-import com.geekbrains.spring.web.entities.Product;
+import com.geekbrains.coreservice.entities.Product;
 import lombok.Data;
 import org.springframework.cache.CacheManager;
 

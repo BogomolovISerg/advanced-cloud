@@ -1,7 +1,7 @@
 package com.geekbrains.coreservice.converters;
 
-import com.geekbrains.spring.web.dto.ProductDto;
-import com.geekbrains.spring.web.entities.Product;
+import com.geekbrains.coreservice.dto.ProductDto;
+import com.geekbrains.coreservice.entities.Product;
 import org.springframework.stereotype.Component;
 
 @Component

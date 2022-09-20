@@ -13,6 +13,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
+kafka:
+  consumer:
+    group-id: 1
+  bootstrap-servers: localhost:9092
+  topic: "order_topic"
   h2:
     console:
       enabled: true

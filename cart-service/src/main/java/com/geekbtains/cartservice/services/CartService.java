@@ -18,9 +18,14 @@ import java.util.Optional;
 public class CartService {
     @Qualifier("test")
     private final CacheManager cacheManager;
-    private final RestTemplate restTemplate; //ProductService
+    private final RestTemplate restTemplate;
+
+    private final KafkaTemplate<Long, OrderDto> kafkaTemplate;
+
     @Value("${spring.cache.user.name}")
     private String CACHE_CART;
+    @Value("spring.kafka.topic")
+    private String topic;
     private Cart cart;
 
     @Cacheable(value = "Cart", key = "#cartName")
@@ -49,5 +54,16 @@ public class CartService {
         Cart cart = getCurrentCart(cartName);
         cart.clear();
         return cart;
+    }
+    public void createOrder(String username, OrderDetailsDto orderDetailsDto, String cartName) {
+        Cart currentCart = getCurrentCart(cartName);
+        OrderDto order = new OrderDto();
+        order.setAddress(orderDetailsDto.getAddress());
+        order.setPhone(orderDetailsDto.getPhone());
+        order.setUsername(username);
+        order.setTotalPrice(currentCart.getTotalPrice());
+        order.setItemDtoList(currentCart.getItems());
+        currentCart.clear();
+        kafkaTemplate.send(topic, order);
     }
 }

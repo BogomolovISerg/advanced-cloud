@@ -1,11 +1,11 @@
 package com.geekbrains.coreservice.services;
 
-import com.geekbrains.spring.web.dto.Cart;
-import com.geekbrains.spring.web.dto.OrderDetailsDto;
-import com.geekbrains.spring.web.entities.Order;
-import com.geekbrains.spring.web.entities.OrderItem;
-import com.geekbrains.spring.web.exceptions.ResourceNotFoundException;
-import com.geekbrains.spring.web.repositories.OrderRepository;
+import com.geekbrains.coreservice.dto.Cart;
+import com.geekbrains.coreservice.dto.OrderDetailsDto;
+import com.geekbrains.coreservice.entities.Order;
+import com.geekbrains.coreservice.entities.OrderItem;
+import com.geekbrains.coreservice.exceptions.ResourceNotFoundException;
+import com.geekbrains.coreservice.repositories.OrderRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

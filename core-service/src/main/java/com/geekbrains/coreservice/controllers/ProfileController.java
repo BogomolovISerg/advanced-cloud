@@ -1,9 +1,10 @@
 package com.geekbrains.coreservice.controllers;
 
-import com.geekbrains.spring.web.dto.ProfileDto;
-import org.springframework.web.bind.annotation.*;
-
-import java.security.Principal;
+import com.geekbrains.coreservice.dto.ProfileDto;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/profile")
