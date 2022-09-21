@@ -27,9 +27,15 @@ public class OrderService {
     public void createOrder(String username, OrderDetailsDto orderDetailsDto, String cartName){
         Cart currentCart = cartTemplate.postForObject("http://localhost:8187/web-market-cart/api/v1/carts", cartName, Cart.class);
         Order order = new Order();
-        order.setAddress(orderDetailsDto.getAddress());
+        order.setAddressLine1(orderDetailsDto.getAddressLine1());
+        order.setAddressLine2(orderDetailsDto.getAddressLine2());
+        order.setAdminArea1(orderDetailsDto.getAdminArea1());
+        order.setAdminArea2(orderDetailsDto.getAdminArea2());
+        order.setCountryCode(orderDetailsDto.getCountryCode());
+        order.setPostalCode(orderDetailsDto.getPostalCode());
         order.setPhone(orderDetailsDto.getPhone());
         order.setUsername(username);
+        order.setPaid(false);
         order.setTotalPrice(currentCart.getTotalPrice());
         List<OrderItem> items = currentCart.getItems().stream()
                 .map(o -> {
@@ -44,6 +50,10 @@ public class OrderService {
         order.setItems(items);
         orderRepository.save(order);
         currentCart.clear();
+    }
+
+    public Order findById(Long id){
+        return orderRepository.findById(id).orElseThrow();
     }
 
     public List<Order> findOrdersByUsername(String username) {

@@ -7,10 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -33,5 +30,9 @@ public class OrderController {
                 .map(orderConverter::entityToDto).collect(Collectors.toList());
     }
 
+    @GetMapping("/{id}")
+    public OrderDto getOrderById(@PathVariable Long id){
+        return orderConverter.entityToDto(orderService.findById(id));
+    }
 
 }
